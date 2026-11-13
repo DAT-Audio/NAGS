@@ -1,0 +1,13 @@
+# Build output
+.build/
+build/
+.swiftpm/
+nag-build/
+
+# Local only
+.DS_Store
+__pycache__/
+.claude/
+CLAUDE.md
+AGENTS.md
+*.dmg

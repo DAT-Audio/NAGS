@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>NetworkAudioGrabberAU</string>
+	<key>CFBundleIconFile</key>
+	<string>DATAudioPlugins</string>
+	<key>CFBundleIdentifier</key>
+	<string>app.networkaudiograbber.au</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Network Audio Grabber</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.16.2</string>
+	<key>CFBundleVersion</key>
+	<string>18</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.2</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>The DAT Audio Grabber listens for AES67, RAVENNA, Dante (AES67) and VBAN streams on your local network, and the Sender sends its track to receivers you choose.</string>
+	<key>AudioComponents</key>
+	<array>
+		<dict>
+			<key>type</key><string>aumu</string>
+			<key>subtype</key><string>NRcv</string>
+			<key>manufacturer</key><string>DATa</string>
+			<key>name</key><string>DAT Audio: Grabber</string>
+			<key>description</key><string>Receives network audio streams — AES67, RAVENNA, Dante (AES67), VBAN and more — onto its track. Receive only: sending is the Sender's.</string>
+			<key>factoryFunction</key><string>NAGReceiverFactory</string>
+			<key>version</key><integer>4097</integer>
+			<key>sandboxSafe</key><true/>
+			<key>tags</key><array><string>Utilities</string></array>
+		</dict>
+		<dict>
+			<key>type</key><string>aufx</string>
+			<key>subtype</key><string>NRcx</string>
+			<key>manufacturer</key><string>DATa</string>
+			<key>name</key><string>DAT Audio: Grabber (effect)</string>
+			<key>description</key><string>The Grabber for hosts that load only effects: puts network audio streams in place of the track. Receive only.</string>
+			<key>factoryFunction</key><string>NAGReceiverEffectFactory</string>
+			<key>version</key><integer>4097</integer>
+			<key>sandboxSafe</key><true/>
+			<key>tags</key><array><string>Utilities</string></array>
+		</dict>
+		<dict>
+			<key>type</key><string>aufx</string>
+			<key>subtype</key><string>NSnd</string>
+			<key>manufacturer</key><string>DATa</string>
+			<key>name</key><string>DAT Audio: Sender</string>
+			<key>description</key><string>Sends its track over the network as VBAN, to another Grabber, Voicemeeter or any VBAN receiver.</string>
+			<key>factoryFunction</key><string>NAGSenderFactory</string>
+			<key>version</key><integer>4097</integer>
+			<key>sandboxSafe</key><true/>
+			<key>tags</key><array><string>Utilities</string></array>
+		</dict>
+	</array>
+</dict>
+</plist>

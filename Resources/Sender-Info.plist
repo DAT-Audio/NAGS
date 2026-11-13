@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Network Audio Sender</string>
+	<key>CFBundleExecutable</key>
+	<string>NetworkAudioSender</string>
+	<key>CFBundleIconFile</key>
+	<string>NetworkAudioSender</string>
+	<key>CFBundleIdentifier</key>
+	<string>app.networkaudiosender.send</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Network Audio Sender</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.16.2</string>
+	<key>CFBundleVersion</key>
+	<string>18</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.2</string>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Network Audio Sender sends what this Mac is playing to the receivers you choose, as VBAN.</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Network Audio Sender sends this Mac's audio to VBAN receivers on your network.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Network Audio Sender can send an input device you choose — a microphone, an interface's inputs or a virtual device — to receivers on your network.</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+</dict>
+</plist>

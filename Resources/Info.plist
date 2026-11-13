@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Network Audio Grabber</string>
+	<key>CFBundleExecutable</key>
+	<string>NetworkAudioGrabber</string>
+	<key>CFBundleIconFile</key>
+	<string>NetworkAudioGrabber</string>
+	<key>CFBundleIdentifier</key>
+	<string>app.networkaudiograbber.monitor</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Network Audio Grabber</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.16.2</string>
+	<key>CFBundleVersion</key>
+	<string>18</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.2</string>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Network Audio Grabber sends what this Mac is playing to the receivers you choose, as VBAN, when you use its Send area.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_rtsp._tcp</string>
+		<string>_netaudio-arc._udp</string>
+		<string>_netaudio-cmc._udp</string>
+		<string>_netaudio-chan._udp</string>
+	</array>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Network Audio Grabber discovers and receives AES67, RAVENNA, Dante and VBAN audio streams on your local network.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Network Audio Grabber's Send can send an input device you choose — a microphone, an interface's inputs or a virtual device — to receivers on your network.</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+</dict>
+</plist>

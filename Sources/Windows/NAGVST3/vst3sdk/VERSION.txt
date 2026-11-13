@@ -1,0 +1,2 @@
+Steinberg VST 3 SDK, tag v3.8.1_build_84 (github.com/steinbergmedia/vst3sdk), MIT licence (LICENSE.txt).
+Only the hosting subset is kept: pluginterfaces/{base,vst,gui} and the public.sdk files the host needs. Unchanged.

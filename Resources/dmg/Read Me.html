@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Read Me</title>
+<style>
+:root {
+  --bg: #f4f3f1; --panel: #ffffff; --text: #1d1d1f; --muted: #5f5f66; --line: #dddbd6;
+  --accent: #b86e00; --accent-soft: #fff3df; --warn-soft: #fdeceb; --warn: #b3261e;
+  --code-bg: #eeece8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1b1d; --panel: #252527; --text: #ececee; --muted: #a2a2aa; --line: #3a3a3e;
+    --accent: #f0a640; --accent-soft: #3a2c16; --warn-soft: #3d2120; --warn: #ff8a80;
+    --code-bg: #2f2f33;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif; }
+main { max-width: 820px; margin: 0 auto; padding: 40px 20px 80px; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 18px; margin-bottom: 8px; }
+.kicker { color: var(--accent); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+h1 { font-size: 30px; line-height: 1.15; margin: 6px 0 8px; letter-spacing: -.01em; }
+h2 { font-size: 20px; margin: 38px 0 10px; padding-top: 6px; }
+h2 .n { color: var(--accent); margin-right: 8px; }
+h3 { font-size: 16px; margin: 22px 0 6px; }
+p, li { max-width: 70ch; }
+.lead { color: var(--muted); margin: 0; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+code, kbd { font: 13px/1.4 ui-monospace, "SF Mono", Menlo, monospace; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+pre { background: var(--code-bg); padding: 12px 14px; border-radius: 8px; overflow-x: auto; font: 13px/1.5 ui-monospace, "SF Mono", Menlo, monospace; white-space: pre-wrap; word-break: break-all; }
+.note, .warn { border-radius: 8px; padding: 12px 16px; margin: 14px 0; }
+.note { background: var(--accent-soft); border-left: 4px solid var(--accent); }
+.warn { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+ol li, ul li { margin: 4px 0; }
+.steps { counter-reset: s; list-style: none; padding-left: 0; }
+.steps > li { counter-increment: s; position: relative; padding-left: 34px; margin: 10px 0; }
+.steps > li::before { content: counter(s); position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent); color: var(--bg); font-weight: 700; font-size: 12px; display: grid; place-items: center; }
+a { color: var(--accent); }
+footer { margin-top: 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 560px) { h1 { font-size: 24px; } th, td { padding: 8px; } }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="kicker">Version 0.16.2</div>
+  <h1>Network Audio Grabber &amp; Sender</h1>
+  <p class="lead">Listen to network audio streams on a Mac, and send a Mac's audio to other machines.
+  Free software under the MIT licence. This page takes five minutes and saves most first-day questions.</p>
+</header>
+
+<h2>What's in the disk image</h2>
+<table>
+  <tr><th>Item</th><th>What it is</th></tr>
+  <tr><td><b>Network Audio Grabber</b></td><td>The receiver. Finds and plays AES67, RAVENNA, Dante (in AES67 mode) and VBAN
+    streams, mixes several at once, with meters, loudness and Audio Unit inserts. It can also send this Mac's audio (its <i>Send</i> area).</td></tr>
+  <tr><td><b>Network Audio Sender</b></td><td>A small app that sends whatever this Mac is playing, as VBAN, to Grabbers or any VBAN receiver
+    (Voicemeeter, for example).</td></tr>
+  <tr><td><b>DAT Audio Plug-ins</b> <i>(beta)</i></td><td>Optional. Three Audio Unit plug-ins for DAWs: <b>Grabber</b>, <b>Grabber (effect)</b> and <b>Sender</b>.</td></tr>
+</table>
+<p>Each app has an illustrated guide under <b>Help → Quick Start Guide</b>, and its credits and licences under <b>About</b>.</p>
+
+<h2>Before you start</h2>
+<ul>
+  <li><b>A Mac with Apple silicon</b> (M1 or later) running <b>macOS 14.2 Sonoma or later</b>. Intel Macs are not supported by this build.</li>
+  <li>It isn't from the App Store and isn't notarised by Apple, so macOS asks you to confirm the first time you open it (step 2).</li>
+  <li>Nothing is sent to the internet or across the network unless you choose to send something. There are no accounts, analytics or update checks.</li>
+</ul>
+
+<h2><span class="n">1</span>Install the apps</h2>
+<ol class="steps">
+  <li>Drag <b>Network Audio Grabber</b> and, if you want it, <b>Network Audio Sender</b> onto <b>Applications</b> in the disk image's window.</li>
+  <li>Eject the disk image, and open the apps from your Applications folder.</li>
+</ol>
+
+<h2><span class="n">2</span>Opening them the first time</h2>
+<p>If macOS opens the app straight away, skip this step. Otherwise:</p>
+<h3>macOS 15 Sequoia and later</h3>
+<ol class="steps">
+  <li>Double-click the app. macOS says it <i>could not verify</i> the app. Click <b>Done</b> (not <i>Move to Bin</i>).</li>
+  <li>Open <b>System Settings → Privacy &amp; Security</b> and scroll down to <i>Security</i>. Next to the message about the app, click <b>Open Anyway</b>.</li>
+  <li>Enter your password, then click <b>Open Anyway</b> again. You only do this once per app.</li>
+</ol>
+<h3>macOS 14 Sonoma</h3>
+<ol class="steps">
+  <li>Control-click (or right-click) the app in Applications and choose <b>Open</b>.</li>
+  <li>Click <b>Open</b> in the dialog. You only do this once per app.</li>
+</ol>
+<div class="note"><b>Comfortable with Terminal?</b> This does the same for both apps at once:
+<pre>xattr -dr com.apple.quarantine "/Applications/Network Audio Grabber.app" "/Applications/Network Audio Sender.app"</pre></div>
+
+<h2><span class="n">3</span>Permissions macOS will ask for</h2>
+<table>
+  <tr><th>When</th><th>The question</th><th>Answer</th></tr>
+  <tr><td>First launch of either app</td><td><i>Allow … to find devices on local networks?</i></td><td><b>Allow.</b> Without it the Grabber cannot find RAVENNA or Dante streams, and the apps can't find each other.</td></tr>
+  <tr><td>If the macOS firewall is on</td><td><i>Accept incoming network connections?</i></td><td><b>Allow.</b> Streams arrive as incoming network traffic.</td></tr>
+  <tr><td>The first time something is <b>sent</b> (the Sender, or the Grabber's Send)</td><td>Permission to record this Mac's audio</td><td><b>Allow.</b> Until then nothing is captured; the window says so and has a button to the right page of System Settings
+    (<i>Privacy &amp; Security → Screen &amp; System Audio Recording → System Audio Recording Only</i>).</td></tr>
+</table>
+<p>You can change any of these later in System Settings → Privacy &amp; Security.</p>
+
+<h2><span class="n">4</span>The DAW plug-ins (optional, beta)</h2>
+<h3>The simple way</h3>
+<ol class="steps">
+  <li>Quit your DAW.</li>
+  <li>Open the Grabber and choose <b>Help → Install DAW Plug-ins (beta)…</b>. They go in your own Components folder; no password, no Terminal.
+    The same menu item updates or removes them later.</li>
+  <li>Open the DAW and let it rescan. In Logic, if they don't appear: <i>Logic Pro → Settings → Plug-in Manager → Reset &amp; Rescan Selection</i>.</li>
+</ol>
+<h3>Or from the disk image, for every user of this Mac</h3>
+<ol class="steps">
+  <li>Drag <b>DAT Audio Plug-ins</b> onto <b>Components</b> in the disk image's window, and enter your password when asked.</li>
+  <li>A DAW can't show the "open anyway" question for a plug-in, so clear the download flag in Terminal:
+<pre>sudo xattr -dr com.apple.quarantine "/Library/Audio/Plug-Ins/Components/DAT Audio Plug-ins.component"</pre></li>
+</ol>
+<table>
+  <tr><th>Plugin</th><th>Use it as</th></tr>
+  <tr><td><b>DAT Audio: Grabber</b></td><td>An <b>instrument</b>: plays network streams on its track. Logic: a Software Instrument track. REAPER: instrument FX.</td></tr>
+  <tr><td><b>DAT Audio: Grabber (effect)</b></td><td>An <b>effect</b> that puts the network in place of the track, for hosts that load only effects
+    (Audacity, Audition, Premiere Pro, Final Cut Pro, Resolve, Audio Hijack). In Logic, use it on an audio track with input monitoring on to hear the network continuously.</td></tr>
+  <tr><td><b>DAT Audio: Sender</b></td><td>An <b>effect</b> that sends its track over VBAN to a Grabber or any VBAN receiver.</td></tr>
+</table>
+<p>So far the plug-ins have been tried mainly in REAPER.
+Cubase, Nuendo, Pro Tools and Reason don't load Audio Units.</p>
+
+<h2><span class="n">5</span>Getting going</h2>
+<ul>
+  <li>Open <b>Help → Quick Start Guide</b> in either app. It covers listening, the four ways to send, and the window.</li>
+  <li><b>Listening to AES67 / RAVENNA / Dante:</b> pick the network interface that's on the audio network (top left of the Grabber), then press ▶ on a stream.
+    Dante devices need AES67 mode switched on in Dante Controller.</li>
+  <li><b>Sending between two Macs on the same network:</b> in the Sender, turn on <b>Findable by Grabbers</b>. The stream appears in the other Mac's Grabber; press ▶ there, then <b>Allow</b> on the Sender.</li>
+  <li><b>Between two places</b> (two buildings, across the internet): use <b>Connect / Send… → Somewhere else → Remote link</b>. Each end makes a code and sends it to the other.
+    Nothing to set up on a router, and the audio is encrypted end to end.</li>
+</ul>
+
+<h2>Good to know</h2>
+<ul>
+  <li><b>Where the sound goes.</b> The Grabber plays through the Mac's current output device and follows it, unless you choose one: click the device name at the top of the Grabber (or Settings → Output → Device). A chosen device stays chosen; if it's unplugged, the Grabber plays on the current one until it's back.</li>
+  <li><b>Channels.</b> A stream can have up to 64 channels. The Grabber plays in <b>stereo</b> to begin with: each playing stream's <b>Bus</b> menu sets how it gets there — a <b>fold-down</b> of the whole stream (5.1 → 2.0, say), one <b>pair</b> of its channels, or one channel in <b>mono</b>.
+    For surround, <b>Settings → Output → Output bus</b> can be 4.0, 5.1, 7.1 or the device's full width. <b>Settings → Fold-down</b> sets how the fold-down mixes.</li>
+  <li><b>What gets sent.</b> <b>System audio</b> to begin with: everything this Mac plays, except the two apps themselves. The <b>Source</b> menu (the Sender's header, or under the stream name in the Grabber's Send) changes that to <b>chosen apps</b> — a browser's sound comes from its helper processes, which are included with it — or <b>an input device</b> (a microphone, an interface's inputs, BlackHole), sent whole at its own channel count. macOS asks for Microphone access the first time.</li>
+  <li><b>Routing ideas.</b> Several devices at once: a <b>Multi-Output Device</b> from Audio MIDI Setup, chosen as the Grabber's output. Into another app: choose <b>BlackHole</b> (free) as the Grabber's output and as that app's input. A mix of several things to send: route them into BlackHole or an <b>aggregate device</b>, then choose it as the Sender's input. Rogue Amoeba's <b>Loopback</b> (paid) does the same with a visual router.</li>
+</ul>
+
+<h2>Good network manners</h2>
+<ul>
+  <li><b>Nothing sends at launch</b> unless you have chosen to (and ticked <i>Resume sending when opened</i>).</li>
+  <li><b>Broadcast</b> sends to every device on a network. It's fine on a small network of your own, but please don't use it on a busy shared network.
+    <i>Findable by Grabbers</i> or a single address is the polite choice there.</li>
+  <li>If you are on a managed network (a company or venue), follow its rules on streaming audio. Normal monitoring of AES67 streams adds no traffic beyond what you choose to listen to.</li>
+  <li>Audio on the local network (VBAN, AES67) is <b>not encrypted</b>, like other tools of this kind. Only the <b>Remote link</b> is encrypted.
+    <i>By address</i> across the internet is not encrypted and needs a router port opened; the apps warn you before you use it.</li>
+</ul>
+
+<h2>Early and beta parts</h2>
+<ul>
+  <li><b>Network Audio Sender</b> and VBAN receive are newer than the AES67 side, and have been tested on fewer Macs.</li>
+  <li><b>Beta, off by default</b> (Settings → Discovery): <i>Scream</i> (a Windows virtual sound card), <i>RTP without PTP</i> (PipeWire, PulseAudio, VLC, GStreamer) and <i>Internet streams</i> (Icecast/SHOUTcast radio). Try them if you're curious, but they're not the focus.</li>
+  <li>There is no Windows version yet.</li>
+</ul>
+
+<h2>Things that look like faults but aren't</h2>
+<table>
+  <tr><th>You see</th><th>Why</th></tr>
+  <tr><td>AES67 streams are listed but play nothing</td><td>The wrong network interface is chosen. Multicast arrives only on the interface that's on the audio network. The log says so after a few seconds.</td></tr>
+  <tr><td>Nothing from the audio network over Wi-Fi or a VPN</td><td>Wi-Fi is usually a different subnet, and remote-access VPNs don't carry multicast. VBAN and the Remote link do work over a VPN or the internet.</td></tr>
+  <tr><td>A Dante Virtual Soundcard stream never appears</td><td>Dante Virtual Soundcard and Dante Via can't send AES67 at all.</td></tr>
+  <tr><td>In Logic, the Grabber instrument goes quiet when its track isn't selected</td><td>Logic only renders a Software Instrument track while it's selected or armed. Use the Grabber (effect) on an audio track with input monitoring for continuous listening.</td></tr>
+  <tr><td>The app and a Grabber plugin are both open, and one of them misses a stream</td><td>They share VBAN's port. Streams sent straight to this Mac reach whichever started first; Findable Senders reach both.</td></tr>
+  <tr><td>"underruns" climbing, little clicks</td><td>The buffer is too small for that network. Raise it in Settings → Playout (AES67 starts at 15 ms; Wi-Fi and the internet need more). <i>Test the connection</i> suggests a figure for remote streams.</td></tr>
+</table>
+
+<h2>If something goes wrong</h2>
+<p>Each app keeps a log of what it did and why: <b>Settings → Log</b>, with <b>Export…</b> to save it as a text file. It includes network addresses
+and stream names from your network, so share it only with someone you trust to help.</p>
+
+<h2>Updating to a newer build</h2>
+<p>Quit the apps (and any DAW using the plug-ins), then drag the new apps onto Applications and replace them.
+Your settings and permissions carry over. Then <b>Help → Update DAW Plug-ins…</b> in the Grabber, if you use the plug-ins.</p>
+
+<h2>Removing everything</h2>
+<ol class="steps">
+  <li>In either app: <b>Settings → Remove all settings…</b> (in the Grabber it's under <i>Settings → Log</i>). It clears both apps' settings and the plug-ins', then quits. Quit the other app and any DAW using the plug-ins first.</li>
+  <li>If you installed the plug-ins: <b>Help → Remove DAW Plug-ins…</b> in the Grabber (or, if installed for all users, remove <i>DAT Audio Plug-ins</i> from <code>/Library/Audio/Plug-Ins/Components</code>).</li>
+  <li>Move both apps to the Bin.</li>
+  <li>Empty the Bin. macOS drops the apps' permissions by itself.</li>
+</ol>
+
+<footer>
+  Network Audio Grabber, Network Audio Sender and the DAT Audio plug-ins, version 0.16.2. © DAT Audio. Free software under the MIT licence; the licences are under About → Licences… in each app.
+  Includes swift-crypto and AudioUnitSDK (Apple, Apache 2.0). Dante is a trademark of Audinate, RAVENNA of ALC NetworX, VBAN and Voicemeeter of VB-Audio Software;
+  these tools are independent and not affiliated with any of them.
+</footer>
+</main>
+</body>
+</html>
